@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+
+  <!-- jsPsych core -->
+  <script src="https://unpkg.com/jspsych@7.3.4"></script>
+
+  <!-- plugins -->
+  <script src="https://unpkg.com/@jspsych/plugin-preload@1.1.0"></script>
+  <script src="https://unpkg.com/@jspsych/plugin-html-button-response@1.1.0"></script>
+
+  <link href="https://unpkg.com/jspsych@7.3.4/css/jspsych.css" rel="stylesheet">
+</head>
+
+<body>
+
+<script>
+const jsPsych = initJsPsych();
+
+fetch("stimuli/test_sample/files.json")
+  .then(res => res.json())
+  .then(images => {
+
+    const timeline = [];
+
+    // -------------------------
+    // PRELOAD
+    // -------------------------
+    timeline.push({
+      type: jsPsychPreload,
+      images: images.map(img => "stimuli/test_sample/" + img)
+    });
+
+    // -------------------------
+    // INSTRUCTIONS
+    // -------------------------
+    timeline.push({
+      type: jsPsychHtmlButtonResponse,
+      stimulus: `
+        <p>You will see images one at a time.</p>
+        <p>Describe each image using at least 5 words.</p>
+      `,
+      choices: ["Start"]
+    });
+
+    // -------------------------
+    // IMAGE TRIAL
+    // -------------------------
+    const image_trial = {
+  type: jsPsychHtmlButtonResponse,
+
+  stimulus: function () {
+    const img = jsPsych.timelineVariable('image');
+
+    return `
+      <img src="stimuli/test_sample/${img}" width="500">
+      <br><br>
+
+      <input id="resp" type="text" style="width:400px">
+      <button id="next-btn" disabled>Next</button>
+
+      <p id="warning" style="color:red;"></p>
+    `;
+  },
+
+  choices: [],
+
+  on_load: function () {
+
+    const input = document.getElementById("resp");
+    const btn = document.getElementById("next-btn");
+    const warning = document.getElementById("warning");
+
+    function validate() {
+      const words = input.value.trim().split(/\s+/).filter(Boolean);
+
+      if (words.length >= 5) {
+        btn.disabled = false;
+        warning.innerText = "";
+      } else {
+        btn.disabled = true;
+      }
+    }
+
+    input.addEventListener("input", validate);
+
+    btn.onclick = function () {
+      const words = input.value.trim().split(/\s+/).filter(Boolean);
+
+      if (words.length < 5) {
+        warning.innerText = "Please write at least 5 words.";
+        return;
+      }
+
+      jsPsych.finishTrial({
+        image: jsPsych.timelineVariable('image'),
+        response: input.value,
+        word_count: words.length
+      });
+    };
+  }
+};
+    // -------------------------
+    // LOOP OVER IMAGES
+    // -------------------------
+    timeline.push({
+      timeline: [image_trial],
+      timeline_variables: images.map(img => ({ image: img })),
+      randomize_order: true
+    });
+
+    // -------------------------
+    // RUN
+    // -------------------------
+    jsPsych.run(timeline);
+
+  });
+
+</script>
+
+</body>
+</html>
