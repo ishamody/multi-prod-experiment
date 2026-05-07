@@ -33,12 +33,18 @@ function sendData(data, filename, action="append") {
       "Content-Type": "application/json"
     },
     body: JSON.stringify({
-      experiment_id: EXP_ID,
+      experimentID: EXP_ID,
       filename: filename,
-      data: data,
+      // IMPORTANT
+      data: typeof data === "string"
+        ? data
+        : JSON.stringify(data),
       action: action
     })
-  }).catch(err => console.error("Data save error:", err));
+  })
+  .then(res => res.json())
+  .then(data => console.log("Saved:", data))
+  .catch(err => console.error(err));
 }
 
 fetch("stimuli/test_sample/files.json")
