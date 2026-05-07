@@ -3,49 +3,47 @@
 <head>
   <meta charset="UTF-8">
 
+  <!-- jsPsych -->
   <script src="https://unpkg.com/jspsych@7.3.4"></script>
+
+  <!-- plugins -->
   <script src="https://unpkg.com/@jspsych/plugin-preload@1.1.0"></script>
   <script src="https://unpkg.com/@jspsych/plugin-html-button-response@1.1.0"></script>
+  <script src="https://unpkg.com/@jspsych-contrib/plugin-pipe"></script>
 
+  <!-- css -->
   <link href="https://unpkg.com/jspsych@7.3.4/css/jspsych.css" rel="stylesheet">
+
+  <style>
+    body {
+      background-color: white;
+    }
+
+    input {
+      font-size: 18px;
+      padding: 8px;
+    }
+
+    button {
+      font-size: 16px;
+      padding: 8px 16px;
+    }
+
+    #warning {
+      color: red;
+      margin-top: 10px;
+    }
+  </style>
 </head>
 
 <body>
 
 <script>
+
 const jsPsych = initJsPsych();
 
-const EXP_ID = "qDuWy1HMSUa6";
-
-// persistent participant id
-if (!localStorage.getItem("pid")) {
-  localStorage.setItem("pid", jsPsych.randomization.randomID(10));
-}
-const PID = localStorage.getItem("pid");
-
-// -------------------------
-// SILENT DATAPIPE FUNCTION
-// -------------------------
-function sendData(data, filename, action="append") {
-  fetch("https://pipe.jspsych.org/api/data/", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-      experimentID: EXP_ID,
-      filename: filename,
-      // IMPORTANT
-      data: typeof data === "string"
-        ? data
-        : JSON.stringify(data),
-      action: action
-    })
-  })
-  .then(res => res.json())
-  .then(data => console.log("Saved:", data))
-  .catch(err => console.error(err));
-}
+const subject_id = jsPsych.randomization.randomID(10);
+const filename = `${subject_id}.csv`;
 
 fetch("stimuli/test_sample/files.json")
   .then(res => res.json())
@@ -53,34 +51,70 @@ fetch("stimuli/test_sample/files.json")
 
     const timeline = [];
 
+    // -------------------------
     // PRELOAD
+    // -------------------------
+
     timeline.push({
       type: jsPsychPreload,
       images: images.map(img => "stimuli/test_sample/" + img)
     });
 
+    // -------------------------
     // INSTRUCTIONS
+    // -------------------------
+
     timeline.push({
       type: jsPsychHtmlButtonResponse,
+
       stimulus: `
         <p>You will see images one at a time.</p>
-        <p>Describe each image using at least 5 words.</p>
+
+        <p>
+          Please describe each image using at least 5 words.
+        </p>
       `,
+
       choices: ["Start"]
     });
 
+    // -------------------------
     // IMAGE TRIAL
+    // -------------------------
+
     const image_trial = {
+
       type: jsPsychHtmlButtonResponse,
 
       stimulus: function () {
+
         const img = jsPsych.timelineVariable('image');
+
         return `
-          <img src="stimuli/test_sample/${img}" width="500">
-          <br><br>
-          <input id="resp" type="text" style="width:400px">
-          <button id="next-btn" disabled>Next</button>
-          <p id="warning" style="color:red;"></p>
+          <div>
+
+            <img
+              src="stimuli/test_sample/${img}"
+              width="500"
+            >
+
+            <br><br>
+
+            <input
+              id="resp"
+              type="text"
+              style="width:500px"
+            >
+
+            <br><br>
+
+            <button id="next-btn" disabled>
+              Next
+            </button>
+
+            <p id="warning"></p>
+
+          </div>
         `;
       },
 
@@ -93,61 +127,116 @@ fetch("stimuli/test_sample/files.json")
         const warning = document.getElementById("warning");
 
         function validate() {
-          const words = input.value.trim().split(/\s+/).filter(Boolean);
-          btn.disabled = words.length < 5;
-          warning.innerText = words.length < 5 ? "" : "";
+
+          const words = input.value
+            .trim()
+            .split(/\s+/)
+            .filter(Boolean);
+
+          if (words.length >= 5) {
+
+            btn.disabled = false;
+            warning.innerText = "";
+
+          } else {
+
+            btn.disabled = true;
+
+          }
         }
 
         input.addEventListener("input", validate);
 
         btn.onclick = function () {
-          const words = input.value.trim().split(/\s+/).filter(Boolean);
+
+          const words = input.value
+            .trim()
+            .split(/\s+/)
+            .filter(Boolean);
 
           if (words.length < 5) {
-            warning.innerText = "Please write at least 5 words.";
+
+            warning.innerText =
+              "Please write at least 5 words.";
+
             return;
           }
 
-          const trialData = {
-            participant_id: PID,
-            image: jsPsych.timelineVariable('image'),
-            response: input.value,
-            word_count: words.length,
-            time: Date.now()
-          };
+          jsPsych.finishTrial({
 
-          // save to jsPsych
-          jsPsych.finishTrial(trialData);
+            image:
+              jsPsych.timelineVariable('image'),
 
-          // 🔥 SILENT AUTOSAVE
-          sendData(trialData, `${PID}.csv`, "append");
+            response:
+              input.value,
+
+            word_count:
+              words.length
+
+          });
         };
       }
     };
 
-    // LOOP
+    // -------------------------
+    // IMAGE LOOP
+    // -------------------------
+
     timeline.push({
+
       timeline: [image_trial],
-      timeline_variables: images.map(img => ({ image: img })),
+
+      timeline_variables:
+        images.map(img => ({ image: img })),
+
       randomize_order: true
     });
 
-    // FINAL SAVE (FULL DATA)
-    const final_save = {
-      type: jsPsychHtmlButtonResponse,
-      stimulus: "<p>Done.</p>",
-      choices: ["Finish"],
-      on_finish: function () {
-        const full = jsPsych.data.get().csv();
-        sendData(full, `${PID}_full.csv`, "save");
-      }
+    // -------------------------
+    // SAVE DATA
+    // -------------------------
+
+    const save_data = {
+
+      type: jsPsychPipe,
+
+      action: "save",
+
+      experiment_id: "qDuWy1HMSUa6",
+
+      filename: filename,
+
+      data_string: () =>
+        jsPsych.data.get().csv()
     };
 
-    timeline.push(final_save);
+    timeline.push(save_data);
+
+    // -------------------------
+    // END SCREEN
+    // -------------------------
+
+    timeline.push({
+
+      type: jsPsychHtmlButtonResponse,
+
+      stimulus: `
+        <p>
+          Thank you for participating.
+        </p>
+      `,
+
+      choices: ["Finish"]
+    });
+
+    // -------------------------
+    // RUN
+    // -------------------------
 
     jsPsych.run(timeline);
 
   });
+
 </script>
 
 </body>
