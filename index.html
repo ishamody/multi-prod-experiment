@@ -11,16 +11,12 @@
   <script src="https://unpkg.com/@jspsych/plugin-html-button-response@1.1.0"></script>
   <script src="https://unpkg.com/@jspsych-contrib/plugin-pipe"></script>
 
-  <!-- css -->
   <link href="https://unpkg.com/jspsych@7.3.4/css/jspsych.css" rel="stylesheet">
 
   <style>
-    body {
-      background-color: white;
-    }
-
     input {
       font-size: 18px;
+      width: 500px;
       padding: 8px;
     }
 
@@ -54,7 +50,6 @@ fetch("stimuli/test_sample/files.json")
     // -------------------------
     // PRELOAD
     // -------------------------
-
     timeline.push({
       type: jsPsychPreload,
       images: images.map(img => "stimuli/test_sample/" + img)
@@ -63,58 +58,33 @@ fetch("stimuli/test_sample/files.json")
     // -------------------------
     // INSTRUCTIONS
     // -------------------------
-
     timeline.push({
       type: jsPsychHtmlButtonResponse,
-
       stimulus: `
         <p>You will see images one at a time.</p>
-
-        <p>
-          Please describe each image using at least 5 words.
-        </p>
+        <p>Please describe each image using at least 5 words.</p>
       `,
-
       choices: ["Start"]
     });
 
     // -------------------------
     // IMAGE TRIAL
     // -------------------------
-
     const image_trial = {
 
       type: jsPsychHtmlButtonResponse,
 
       stimulus: function () {
-
         const img = jsPsych.timelineVariable('image');
 
         return `
-          <div>
+          <img src="stimuli/test_sample/${img}" width="500">
+          <br><br>
 
-            <img
-              src="stimuli/test_sample/${img}"
-              width="500"
-            >
+          <input id="resp" type="text">
+          <button id="next-btn" disabled>Next</button>
 
-            <br><br>
-
-            <input
-              id="resp"
-              type="text"
-              style="width:500px"
-            >
-
-            <br><br>
-
-            <button id="next-btn" disabled>
-              Next
-            </button>
-
-            <p id="warning"></p>
-
-          </div>
+          <p id="warning"></p>
         `;
       },
 
@@ -122,26 +92,20 @@ fetch("stimuli/test_sample/files.json")
 
       on_load: function () {
 
+        const img = jsPsych.timelineVariable('image');
+
         const input = document.getElementById("resp");
         const btn = document.getElementById("next-btn");
         const warning = document.getElementById("warning");
 
         function validate() {
-
-          const words = input.value
-            .trim()
-            .split(/\s+/)
-            .filter(Boolean);
+          const words = input.value.trim().split(/\s+/).filter(Boolean);
 
           if (words.length >= 5) {
-
             btn.disabled = false;
             warning.innerText = "";
-
           } else {
-
             btn.disabled = true;
-
           }
         }
 
@@ -149,65 +113,40 @@ fetch("stimuli/test_sample/files.json")
 
         btn.onclick = function () {
 
-          const words = input.value
-            .trim()
-            .split(/\s+/)
-            .filter(Boolean);
+          const words = input.value.trim().split(/\s+/).filter(Boolean);
 
           if (words.length < 5) {
-
-            warning.innerText =
-              "Please write at least 5 words.";
-
+            warning.innerText = "Please write at least 5 words.";
             return;
           }
 
           jsPsych.finishTrial({
-
-            image:
-              jsPsych.timelineVariable('image'),
-
-            response:
-              input.value,
-
-            word_count:
-              words.length
-
+            image_name: img,
+            response: input.value,
+            word_count: words.length
           });
         };
       }
     };
 
     // -------------------------
-    // IMAGE LOOP
+    // LOOP OVER IMAGES
     // -------------------------
-
     timeline.push({
-
       timeline: [image_trial],
-
-      timeline_variables:
-        images.map(img => ({ image: img })),
-
+      timeline_variables: images.map(img => ({ image: img })),
       randomize_order: true
     });
 
     // -------------------------
-    // SAVE DATA
+    // SAVE DATA (DataPipe)
     // -------------------------
-
     const save_data = {
-
       type: jsPsychPipe,
-
       action: "save",
-
       experiment_id: "qDuWy1HMSUa6",
-
       filename: filename,
-
-      data_string: () =>
-        jsPsych.data.get().csv()
+      data_string: () => jsPsych.data.get().csv()
     };
 
     timeline.push(save_data);
@@ -215,23 +154,11 @@ fetch("stimuli/test_sample/files.json")
     // -------------------------
     // END SCREEN
     // -------------------------
-
     timeline.push({
-
       type: jsPsychHtmlButtonResponse,
-
-      stimulus: `
-        <p>
-          Thank you for participating.
-        </p>
-      `,
-
+      stimulus: `<p>Done. Thank you for participating.</p>`,
       choices: ["Finish"]
     });
-
-    // -------------------------
-    // RUN
-    // -------------------------
 
     jsPsych.run(timeline);
 
