@@ -1,7 +1,7 @@
 import os
 import json
 
-folder = "stimuli/test_sample"
+folder = "stimuli/full_sample"
 
 files = [
     f for f in os.listdir(folder)
@@ -10,7 +10,7 @@ files = [
 
 files.sort()
 
-with open("stimuli/test_sample/files.json", "w") as f:
+with open("stimuli/full_sample/files.json", "w") as f:
     json.dump(files, f, indent=2)
 
 print(f"Saved {len(files)} images to files.json")

@@ -41,7 +41,7 @@ const jsPsych = initJsPsych();
 const subject_id = jsPsych.randomization.randomID(10);
 const filename = `${subject_id}.csv`;
 
-fetch("stimuli/test_sample/files.json")
+fetch("stimuli/full_sample/files.json")
   .then(res => res.json())
   .then(images => {
 
@@ -52,7 +52,7 @@ fetch("stimuli/test_sample/files.json")
     // -------------------------
     timeline.push({
       type: jsPsychPreload,
-      images: images.map(img => "stimuli/test_sample/" + img)
+      images: images.map(img => "stimuli/full_sample/" + img)
     });
 
     // -------------------------
@@ -78,7 +78,7 @@ fetch("stimuli/test_sample/files.json")
         const img = jsPsych.timelineVariable('image');
 
         return `
-          <img src="stimuli/test_sample/${img}" width="500">
+          <img src="stimuli/full_sample/${img}" width="500">
           <br><br>
 
           <input id="resp" type="text">
