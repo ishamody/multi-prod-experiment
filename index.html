@@ -5,6 +5,7 @@
 
   <!-- jsPsych -->
   <script src="https://unpkg.com/jspsych@7.3.4"></script>
+
   <!-- plugins -->
   <script src="https://unpkg.com/@jspsych/plugin-preload@1.1.0"></script>
   <script src="https://unpkg.com/@jspsych/plugin-html-button-response@1.1.0"></script>
@@ -18,10 +19,12 @@
       width: 500px;
       padding: 8px;
     }
+
     button {
       font-size: 16px;
       padding: 8px 16px;
     }
+
     #warning {
       color: red;
       margin-top: 10px;
@@ -31,25 +34,33 @@
 
 <body>
 <script>
+
 const jsPsych = initJsPsych();
+
 const subject_id = jsPsych.randomization.randomID(10);
 const filename = `${subject_id}.csv`;
 
 fetch("stimuli/full_sample/files.json")
   .then(res => res.json())
   .then(images => {
+
     const timeline = [];
-    //split images into groups
+
+    // Split images into 4 groups
     const nGroups = 4;
     const n = images.length;
     const groupSize = Math.ceil(n / nGroups);
+
     const group1 = images.slice(0, groupSize);
     const group2 = images.slice(groupSize, 2 * groupSize);
     const group3 = images.slice(2 * groupSize, 3 * groupSize);
     const group4 = images.slice(3 * groupSize, n);
-    const assigned_group_index = jsPsych.randomization.randomInt(0, nGroups - 1);
-    //assign participant to a list
+
+    const assigned_group_index =
+      jsPsych.randomization.randomInt(0, nGroups - 1);
+
     let participant_images;
+
     if (assigned_group_index === 0) {
       participant_images = group1;
     } else if (assigned_group_index === 1) {
@@ -59,29 +70,110 @@ fetch("stimuli/full_sample/files.json")
     } else {
       participant_images = group4;
     }
+
     jsPsych.data.addProperties({
       image_group: assigned_group_index + 1
     });
+
     // PRELOAD
     timeline.push({
       type: jsPsychPreload,
       images: images.map(img => "stimuli/full_sample/" + img)
     });
+
+    // CONSENT
+    timeline.push({
+      type: jsPsychHtmlButtonResponse,
+      stimulus: `
+        <div style="max-width:900px; text-align:left; margin:auto;">
+          <p>
+            You are participating in a study about language and related cognitive abilities
+            being conducted by Professor Evelina Fedorenko from the Department of Brain and
+            Cognitive Sciences at MIT. If you have questions or concerns, you can contact
+            Professor Fedorenko by email (evelina9@mit.edu).
+          </p>
+
+          <p>
+            Your participation in this research is voluntary. You may decline to answer
+            any or all of the following questions. You may decline further participation,
+            at any time, without adverse consequences.
+          </p>
+
+          <p>
+            Your anonymity is assured; the researchers who have requested your participation
+            will not receive any personal information about you.
+          </p>
+
+          <p>
+            The only restriction to being paid
+            is achieving the accuracy requirements as detailed in the task instructions
+            (to block "bots" who answer randomly).
+          </p>
+
+          <p><strong>I agree to take part in this study.</strong></p>
+        </div>
+      `,
+      choices: [
+        "I Agree",
+        "I Do Not Agree"
+      ],
+      on_finish: function(data) {
+        if (data.response === 1) {
+          jsPsych.endExperiment(
+            "You chose not to participate. You may now close this window."
+          );
+        }
+      }
+    });
+
     // INSTRUCTIONS
     timeline.push({
       type: jsPsychHtmlButtonResponse,
       stimulus: `
-        <p>You will see images one at a time.</p>
-        <p>Please describe each image using at least 5 words.</p>
+        <h2 style="text-align:center;">
+        Instructions: Sentence Production Experiment
+        </h2>
+        <div style="max-width:700px; text-align:left; margin:auto;">
+
+          <p>
+            We ask that you try to use complete sentences with a subject and a verb.
+            For example, "A dog is sitting on a porch." instead of "a dog on a porch",
+            or "The children are playing happily." instead of "Happy children". Please use at least 5 words.
+          </p>
+
+          <div style="text-align:center; margin:20px 0;">
+            <img src="stimuli/instructions_example.png" width="600">
+          </div>
+
+          <p>
+            Please make sure you understand these instructions and are able to follow
+            them in every question. Do not complete this survey if you do not understand.
+          </p>
+
+          <p>
+            You will not get paid if your answers do not follow the instructions
+            (for example, if you write things unrelated to the image or write the same
+            thing such as "a nice picture" for each image).
+          </p>
+
+          <p>
+            Please click "next" when you are ready to begin.
+          </p>
+
+        </div>
       `,
-      choices: ["Start"]
+      choices: ["Next"]
     });
 
     // IMAGE TRIAL
     const image_trial = {
+
       type: jsPsychHtmlButtonResponse,
+
       stimulus: function () {
+
         const img = jsPsych.timelineVariable('image');
+
         return `
           <img src="stimuli/full_sample/${img}" width="500">
           <br><br>
@@ -92,14 +184,21 @@ fetch("stimuli/full_sample/files.json")
           <p id="warning"></p>
         `;
       },
+
       choices: [],
+
       on_load: function () {
+
         const img = jsPsych.timelineVariable('image');
+
         const input = document.getElementById("resp");
         const btn = document.getElementById("next-btn");
         const warning = document.getElementById("warning");
+
         function validate() {
+
           const words = input.value.trim().split(/\s+/).filter(Boolean);
+
           if (words.length >= 5) {
             btn.disabled = false;
             warning.innerText = "";
@@ -107,51 +206,65 @@ fetch("stimuli/full_sample/files.json")
             btn.disabled = true;
           }
         }
+
         input.addEventListener("input", validate);
+
         btn.onclick = function () {
+
           const words = input.value.trim().split(/\s+/).filter(Boolean);
+
           if (words.length < 5) {
             warning.innerText = "Please write at least 5 words.";
             return;
           }
+
           jsPsych.finishTrial({
             image_name: img,
             response: input.value,
             word_count: words.length,
-            image_group: assigned_group_index +1 //1, 2, 3 or 4
+            image_group: assigned_group_index + 1
           });
         };
       }
     };
 
-    // LOOP OVER IMAGES
+    // IMAGE LOOP
     timeline.push({
       timeline: [image_trial],
-      timeline_variables: images.map(img => ({ image: img })),
+      timeline_variables: participant_images.map(img => ({
+        image: img
+      })),
       randomize_order: true
     });
 
-    // SAVE DATA (DataPipe)
-    const save_data = {
+    // SAVE DATA
+    timeline.push({
       type: jsPsychPipe,
       action: "save",
       experiment_id: "qDuWy1HMSUa6",
       filename: filename,
       data_string: () => jsPsych.data.get().csv()
-    };
+    });
 
-    timeline.push(save_data);
-
-    // END SCREEN
+    // COMPLETION SCREEN
     timeline.push({
       type: jsPsychHtmlButtonResponse,
-      stimulus: `<p>Done. Thank you for participating.</p>`,
+      stimulus: `
+        <h2>Thank you for participating!</h2>
+
+        <p>Your completion code is:</p>
+
+        <h1>C137C4CA</h1>
+
+        <p>Please copy this code and submit it to receive credit/payment.</p>
+      `,
       choices: ["Finish"]
     });
 
     jsPsych.run(timeline);
 
   });
+
 </script>
 </body>
 </html>
