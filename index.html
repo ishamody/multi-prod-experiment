@@ -37,8 +37,8 @@
 
 const jsPsych = initJsPsych();
 
-const subject_id = jsPsych.randomization.randomID(10);
-const filename = `${subject_id}.csv`;
+let prolific_id = "";
+let filename = "";
 
 fetch("stimuli/full_sample/files.json")
   .then(res => res.json())
@@ -56,8 +56,7 @@ fetch("stimuli/full_sample/files.json")
     const group3 = images.slice(2 * groupSize, 3 * groupSize);
     const group4 = images.slice(3 * groupSize, n);
 
-    const assigned_group_index =
-      jsPsych.randomization.randomInt(0, nGroups - 1);
+    const assigned_group_index = jsPsych.randomization.randomInt(0, nGroups - 1);
 
     let participant_images;
 
@@ -79,6 +78,27 @@ fetch("stimuli/full_sample/files.json")
     timeline.push({
       type: jsPsychPreload,
       images: images.map(img => "stimuli/full_sample/" + img)
+    });
+    
+    // PROLIFIC ID
+    timeline.push({
+      type: jsPsychSurveyText,
+      questions: [
+        {
+          prompt: "Please copy and paste your Prolific ID below.",
+          required: true
+        }
+      ],
+      button_label: "Continue",
+      on_finish: function(data) {
+        prolific_id = data.response.Q0.trim();
+
+        filename = `group${assigned_group_index}_${prolific_id}.csv`;
+
+        jsPsych.data.addProperties({
+          prolific_id: prolific_id
+        });
+      }
     });
 
     // CONSENT
@@ -242,7 +262,7 @@ fetch("stimuli/full_sample/files.json")
       type: jsPsychPipe,
       action: "save",
       experiment_id: "qDuWy1HMSUa6",
-      filename: filename,
+      filename: () => filename,
       data_string: () => jsPsych.data.get().csv()
     });
 
