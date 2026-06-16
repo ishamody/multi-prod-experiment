@@ -1,0 +1,186 @@
+"success","timeout","failed_images","failed_audio","failed_video","trial_type","trial_index","time_elapsed","internal_node_id","image_group","rt","stimulus","response","image_name","word_count"
+"true","false","[]","[]","[]","preload","0","1415","0.0-0.0","4","","","","",""
+"","","","","","html-button-response","1","6405","0.0-1.0","4","4988","
+        <div style=""max-width:900px; text-align:left; margin:auto;"">
+          <p>
+            You are participating in a study about language and related cognitive abilities
+            being conducted by Professor Evelina Fedorenko from the Department of Brain and
+            Cognitive Sciences at MIT. If you have questions or concerns, you can contact
+            Professor Fedorenko by email (evelina9@mit.edu).
+          </p>
+
+          <p>
+            Your participation in this research is voluntary. You may decline to answer
+            any or all of the following questions. You may decline further participation,
+            at any time, without adverse consequences.
+          </p>
+
+          <p>
+            Your anonymity is assured; the researchers who have requested your participation
+            will not receive any personal information about you.
+          </p>
+
+          <p>
+            The only restriction to being paid
+            is achieving the accuracy requirements as detailed in the task instructions
+            (to block ""bots"" who answer randomly).
+          </p>
+
+          <p><strong>I agree to take part in this study.</strong></p>
+        </div>
+      ","0","",""
+"","","","","","html-button-response","2","19931","0.0-2.0","4","13524","
+        <h2 style=""text-align:center;"">
+        Instructions: Sentence Production Experiment
+        </h2>
+        <div style=""max-width:700px; text-align:left; margin:auto;"">
+
+          <p>
+            We ask that you try to use complete sentences with a subject and a verb.
+            For example, ""A dog is sitting on a porch."" instead of ""a dog on a porch"",
+            or ""The children are playing happily."" instead of ""Happy children"". Please use at least 5 words.
+          </p>
+
+          <div style=""text-align:center; margin:20px 0;"">
+            <img src=""stimuli/instructions_example.png"" width=""600"">
+          </div>
+
+          <p>
+            Please make sure you understand these instructions and are able to follow
+            them in every question. Do not complete this survey if you do not understand.
+          </p>
+
+          <p>
+            You will not get paid if your answers do not follow the instructions
+            (for example, if you write things unrelated to the image or write the same
+            thing such as ""a nice picture"" for each image).
+          </p>
+
+          <p>
+            Please click ""next"" when you are ready to begin.
+          </p>
+
+        </div>
+      ","0","",""
+"","","","","","html-button-response","3","33498","0.0-3.0-0.0","4","","","A teacher is explaining scientific principles.","flickr30_image_858.jpg","6"
+"","","","","","html-button-response","4","48748","0.0-3.0-0.1","4","","","A woman in an ECV is waiting next to a building as a man walks by.","flickr30_image_3495.jpg","16"
+"","","","","","html-button-response","5","54647","0.0-3.0-0.2","4","","","Two children are playing marbles.","flickr30_image_3789.jpg","5"
+"","","","","","html-button-response","6","65265","0.0-3.0-0.3","4","","","A young man is leaning on his arm and thinking.","flickr30_image_938.jpg","10"
+"","","","","","html-button-response","7","74516","0.0-3.0-0.4","4","","","A family is smiling inside their home.","flickr30_image_2938.jpg","7"
+"","","","","","html-button-response","8","83517","0.0-3.0-0.5","4","","","Three men sit around vegetables in an outdoor market.","flickr30_image_975.jpg","9"
+"","","","","","html-button-response","9","94414","0.0-3.0-0.6","4","","","Workers are taking a break while building some sort of rail.","flickr30_image_3022.jpg","11"
+"","","","","","html-button-response","10","103481","0.0-3.0-0.7","4","","","Kids are partaking in a gym or dance class.","flickr30_image_3721.jpg","9"
+"","","","","","html-button-response","11","124365","0.0-3.0-0.8","4","","","Three kids are standing: one on the ground, one on the middle part of a fence and one on the top of the fence.","flickr30_image_3611.jpg","24"
+"","","","","","html-button-response","12","132548","0.0-3.0-0.9","4","","","Many people are enjoying an indoor gathering.","flickr30_image_3222.jpg","7"
+"","","","","","html-button-response","13","141548","0.0-3.0-0.10","4","","","People are walking up a very long, steep staircase.","flickr30_image_601.jpg","9"
+"","","","","","html-button-response","14","153715","0.0-3.0-0.11","4","","","A person is reading while standing in a subway car.","flickr30_image_3294.jpg","10"
+"","","","","","html-button-response","15","166032","0.0-3.0-0.12","4","","","Two men are scraping a design into a giant block of ice.","flickr30_image_3432.jpg","12"
+"","","","","","html-button-response","16","181699","0.0-3.0-0.13","4","","","A man is outside selling eggs and chickens that may or may not be dead, but they have their feathers.","flickr30_image_521.jpg","20"
+"","","","","","html-button-response","17","196166","0.0-3.0-0.14","4","","","Two men are in a yellow Penske truck. ","flickr30_image_3076.jpg","8"
+"","","","","","html-button-response","18","202733","0.0-3.0-0.15","4","","","A woman is smiling while selling backs in a market.","flickr30_image_582.jpg","10"
+"","","","","","html-button-response","19","210666","0.0-3.0-0.16","4","","","A young man is sleeping and leaning on a pole in the subway.","flickr30_image_3300.jpg","13"
+"","","","","","html-button-response","20","222485","0.0-3.0-0.17","4","","","A brown and white cat is on its hind legs trying to play with a string.","flickr30_image_3233.jpg","16"
+"","","","","","html-button-response","21","238533","0.0-3.0-0.18","4","","","People are raising their hands toward a boat that is either leaving or coming and is also filled with people.","flickr30_image_2971.jpg","20"
+"","","","","","html-button-response","22","253982","0.0-3.0-0.19","4","","","An older gentleman with a mustache is drinking an undisclosed liquid of out what appears to be a clay cup.","flickr30_image_3053.jpg","20"
+"","","","","","html-button-response","23","272399","0.0-3.0-0.20","4","","","Nine young people of Asian descent are posing for a picture.","flickr30_image_2899.jpg","11"
+"","","","","","html-button-response","24","286033","0.0-3.0-0.21","4","","","Eight men are posing with a basket of items outdoors.","flickr30_image_3938.jpg","10"
+"","","","","","html-button-response","25","295551","0.0-3.0-0.22","4","","","A worker appears to be fixing the roof on a pagoda.","flickr30_image_3485.jpg","11"
+"","","","","","html-button-response","26","307850","0.0-3.0-0.23","4","","","Two children with blonde hair are laying in sleeping bags on a wooden floor.","flickr30_image_3498.jpg","14"
+"","","","","","html-button-response","27","314933","0.0-3.0-0.24","4","","","A man is building a canoe in a workshop.","flickr30_image_2919.jpg","9"
+"","","","","","html-button-response","28","327600","0.0-3.0-0.25","4","","","A group of three kids and several adults are pretending to be sleeping by laying their heads in their hands.","flickr30_image_3216.jpg","20"
+"","","","","","html-button-response","29","336617","0.0-3.0-0.26","4","","","A woman is pushing a cart filled with flowers in the street.","flickr30_image_3532.jpg","12"
+"","","","","","html-button-response","30","353249","0.0-3.0-0.27","4","","","A woman with a hat and enjoying some sort of pudding is surrounded by bowls of fish and other food.","flickr30_image_840.jpg","20"
+"","","","","","html-button-response","31","368966","0.0-3.0-0.28","4","","","A woman is outside sitting in dirt or dark sand with buckets of clams or other types of fish.","flickr30_image_3013.jpg","19"
+"","","","","","html-button-response","32","380851","0.0-3.0-0.29","4","","","A woman is outdoors with a large group of either reindeer or elk.","flickr30_image_3256.jpg","13"
+"","","","","","html-button-response","33","404849","0.0-3.0-0.30","4","","","A man in a coat and button down shirt is sitting outside with a large pile of what appears to be nuts or dried beans on a wooden pallet.","flickr30_image_3903.jpg","29"
+"","","","","","html-button-response","34","422283","0.0-3.0-0.31","4","","","A woman holds a red umbrella in the rain outdoors in Japan by a food stand and in front of a pagoda.","flickr30_image_3349.jpg","22"
+"","","","","","html-button-response","35","434400","0.0-3.0-0.32","4","","","A muslim woman is weaving some sort of fabric. ","flickr30_image_3361.jpg","9"
+"","","","","","html-button-response","36","444367","0.0-3.0-0.33","4","","","A young child of asian descent is running with a dog outside on the grass.","flickr30_image_3798.jpg","15"
+"","","","","","html-button-response","37","454183","0.0-3.0-0.34","4","","","A young child of Asian descent is hiding behind a tree and smiling.","flickr30_image_3458.jpg","13"
+"","","","","","html-button-response","38","466850","0.0-3.0-0.35","4","","","A young adult who appears to be a student is laying on a bench with his head on a backpack, sleeping.","flickr30_image_3899.jpg","21"
+"","","","","","html-button-response","39","485016","0.0-3.0-0.36","4","","","An African American woman is animatedly talking on a cell phone while on a city street.","flickr30_image_3101.jpg","16"
+"","","","","","html-button-response","40","499567","0.0-3.0-0.37","4","","","Four male workers of asian descent are digging through mud and trash.","flickr30_image_3088.jpg","12"
+"","","","","","html-button-response","41","509583","0.0-3.0-0.38","4","","","A man is helping a young girl ride a bicycle that is too big for her.","flickr30_image_3130.jpg","16"
+"","","","","","html-button-response","42","518834","0.0-3.0-0.39","4","","","A man and woman are dancing outside on a stage.","flickr30_image_3623.jpg","10"
+"","","","","","html-button-response","43","529301","0.0-3.0-0.40","4","","","A man is outside and wiping his nose on his hand.","flickr30_image_867.jpg","11"
+"","","","","","html-button-response","44","546535","0.0-3.0-0.41","4","","","Two women sit in chairs outside while a main off camera reaches to shake the hand of the woman on the right.","flickr30_image_3380.jpg","22"
+"","","","","","html-button-response","45","565467","0.0-3.0-0.42","4","","","Kids are outside at a skate park while one kid performs an aerial stunt and another takes a picture from beneath him.","flickr30_image_3340.jpg","22"
+"","","","","","html-button-response","46","573667","0.0-3.0-0.43","4","","","Someone rides a horse by a lush tree outside.","flickr30_image_353.jpg","9"
+"","","","","","html-button-response","47","580401","0.0-3.0-0.44","4","","","A woman pushes a cart filled with vegetables.","flickr30_image_2858.jpg","8"
+"","","","","","html-button-response","48","587769","0.0-3.0-0.45","4","","","Two kids sit in the water during sunset.","flickr30_image_3016.jpg","8"
+"","","","","","html-button-response","49","602637","0.0-3.0-0.46","4","","","An older gentleman shines the shoes of someone.","flickr30_image_676.jpg","8"
+"","","","","","html-button-response","50","615538","0.0-3.0-0.47","4","","","A woman with red hair and a black toque holds a baby goat.","flickr30_image_3099.jpg","13"
+"","","","","","html-button-response","51","630605","0.0-3.0-0.48","4","","","A man and a woman hold umbrellas while walking on a city street in the rain and the man also holds a baby.","flickr30_image_3289.jpg","23"
+"","","","","","html-button-response","52","643004","0.0-3.0-0.49","4","","","A woman has a large bag of green discs.","flickr30_image_3452.jpg","9"
+"","","","","","html-button-response","53","653088","0.0-3.0-0.50","4","","","An older man with a beard and dark skin holds some sort of netting.","flickr30_image_3861.jpg","14"
+"","","","","","html-button-response","54","663456","0.0-3.0-0.51","4","","","One child pushes another child on a wheeled toy so fast that the image is blurry.","flickr30_image_3554.jpg","16"
+"","","","","","html-button-response","55","674172","0.0-3.0-0.52","4","","","Someone sits while eating on a massive staircase.","flickr30_image_3614.jpg","8"
+"","","","","","html-button-response","56","687271","0.0-3.0-0.53","4","","","Three older men and an older woman sit outside near a building.","flickr30_image_3615.jpg","12"
+"","","","","","html-button-response","57","695155","0.0-3.0-0.54","4","","","Two rice farmers are outside working in the fields.","flickr30_image_995.jpg","9"
+"","","","","","html-button-response","58","705905","0.0-3.0-0.55","4","","","A man sits on the beach opening coconuts with a knife.","flickr30_image_3605.jpg","11"
+"","","","","","html-button-response","59","712362","0.0-3.0-0.56","4","","","A woman washes clothes in a tub outside.","flickr30_image_3087.jpg","8"
+"","","","","","html-button-response","60","721238","0.0-3.0-0.57","4","","","Two women sit with tables to sell vegetables.","flickr30_image_2876.jpg","8"
+"","","","","","html-button-response","61","730689","0.0-3.0-0.58","4","","","A man rows a boat called Neptuno.","flickr30_image_3772.jpg","7"
+"","","","","","html-button-response","62","743805","0.0-3.0-0.59","4","","","A woman sits on the street while her young female child approaches the camera.","flickr30_image_3240.jpg","14"
+"","","","","","html-button-response","63","750923","0.0-3.0-0.60","4","","","A child has fallen asleep in a shopping cart.","flickr30_image_3490.jpg","9"
+"","","","","","html-button-response","64","761655","0.0-3.0-0.61","4","","","An older woman greets young female students wearing school uniforms.","flickr30_image_3074.jpg","10"
+"","","","","","html-button-response","65","774590","0.0-3.0-0.62","4","","","Two preteen male students in school uniforms hug for the camera.","flickr30_image_924.jpg","11"
+"","","","","","html-button-response","66","790856","0.0-3.0-0.63","4","","","Four students weave bamboo into various designs.","flickr30_image_3792.jpg","7"
+"","","","","","html-button-response","67","808124","0.0-3.0-0.64","4","","","A woman frowns while holding some sort of basket with food and a bicycle with a basket.","flickr30_image_2861.jpg","17"
+"","","","","","html-button-response","68","822856","0.0-3.0-0.65","4","","","A horse is upset and in the air while pulling a cart filled with packages.","flickr30_image_3171.jpg","15"
+"","","","","","html-button-response","69","833929","0.0-3.0-0.66","4","","","A woman helps a young child wash their hands in a public restroom.","flickr30_image_3261.jpg","13"
+"","","","","","html-button-response","70","845906","0.0-3.0-0.67","4","","","A child stands outside a store holding an umbrella.","flickr30_image_355.jpg","9"
+"","","","","","html-button-response","71","859206","0.0-3.0-0.68","4","","","A man selling something at an outdoor stand gives the camera two thumbs up.","flickr30_image_849.jpg","14"
+"","","","","","html-button-response","72","878939","0.0-3.0-0.69","4","","","Nine people dressed for either polo or a fox hunt come riding in on their horses.","flickr30_image_3103.jpg","16"
+"","","","","","html-button-response","73","896639","0.0-3.0-0.70","4","","","A large group of children in white shirts and black shorts participate in some sort of physical activity while adults watch.","flickr30_image_3220.jpg","21"
+"","","","","","html-button-response","74","908989","0.0-3.0-0.71","4","","","Five young children outside in a dusty-looking street pose for the camera.","flickr30_image_2973.jpg","12"
+"","","","","","html-button-response","75","919107","0.0-3.0-0.72","4","","","An older man blows bubbles while a bag of balls hangs behind him.","flickr30_image_3853.jpg","13"
+"","","","","","html-button-response","76","927692","0.0-3.0-0.73","4","","","A woman carefully cleans pillars in a fancy-looking building.","flickr30_image_3342.jpg","9"
+"","","","","","html-button-response","77","946656","0.0-3.0-0.74","4","","","A group of around 10 adults attempts to clean up after flooding.","flickr30_image_2935.jpg","12"
+"","","","","","html-button-response","78","957906","0.0-3.0-0.75","4","","","Children are napping either on the floor or in a crib.","flickr30_image_3508.jpg","11"
+"","","","","","html-button-response","79","974324","0.0-3.0-0.76","4","","","People are diving into the water from a fairly short cliff while fisherman fish nearby.","flickr30_image_3111.jpg","15"
+"","","","","","html-button-response","80","984790","0.0-3.0-0.77","4","","","A woman in an outdoor market poses with a very large, dead fish hanging up.","flickr30_image_3108.jpg","15"
+"","","","","","html-button-response","81","995540","0.0-3.0-0.78","4","","","A mother looks incredulously at her child, who looks back confused.","flickr30_image_309.jpg","11"
+"","","","","","html-button-response","82","1007425","0.0-3.0-0.79","4","","","A child with dark skin eats something off a spoon.","flickr30_image_3151.jpg","10"
+"","","","","","html-button-response","83","1019457","0.0-3.0-0.80","4","","","A man and a woman pose on the Great Wall of China after their wedding.","flickr30_image_2918.jpg","15"
+"","","","","","html-button-response","84","1030140","0.0-3.0-0.81","4","","","A young man relaxes on a brick road while reading a book and crossing his legs.","flickr30_image_3591.jpg","16"
+"","","","","","html-button-response","85","1041407","0.0-3.0-0.82","4","","","A woman stuck in traffic looks out her window at a stray cat in the road.","flickr30_image_77.jpg","16"
+"","","","","","html-button-response","86","1061974","0.0-3.0-0.83","4","","","A man rides a bike on a partially flooded road while eating with one hand.","flickr30_image_3430.jpg","15"
+"","","","","","html-button-response","87","1068557","0.0-3.0-0.84","4","","","A child swings a bat at a red ball.","flickr30_image_5.jpg","9"
+"","","","","","html-button-response","88","1075674","0.0-3.0-0.85","4","","","Two people are harvesting rice.","flickr30_image_3385.jpg","5"
+"","","","","","html-button-response","89","1082907","0.0-3.0-0.86","4","","","A man talks to a woman while leaning on a building outside.","flickr30_image_3753.jpg","12"
+"","","","","","html-button-response","90","1093974","0.0-3.0-0.87","4","","","A woman carries two heavy buckets while working outside in the mountains.","flickr30_image_3826.jpg","12"
+"","","","","","html-button-response","91","1106591","0.0-3.0-0.88","4","","","A man carries large vegetables outside while a woman and children look on.","flickr30_image_3085.jpg","13"
+"","","","","","html-button-response","92","1121323","0.0-3.0-0.89","4","","","A woman sits on a wooden deck or porch while weaving some sort of tapestry.","flickr30_image_3728.jpg","15"
+"","","","","","html-button-response","93","1132457","0.0-3.0-0.90","4","","","Two men with dark skin work on a project that involves wooden beams.","flickr30_image_3205.jpg","13"
+"","","","","","html-button-response","94","1141808","0.0-3.0-0.91","4","","","A woman sells produce at an outdoor market.","flickr30_image_2912.jpg","8"
+"","","","","","html-button-response","95","1153607","0.0-3.0-0.92","4","","","An older woman and a young woman sell newspapers and cigarettes at an outdoor stand.","flickr30_image_846.jpg","15"
+"","","","","","html-button-response","96","1165857","0.0-3.0-0.93","4","","","A young woman carries two large bags of something while walking through large greenery.","flickr30_image_451.jpg","14"
+"","","","","","html-button-response","97","1176541","0.0-3.0-0.94","4","","","A woman with dark skin braids the hair of a child sitting on the ground.","flickr30_image_3149.jpg","15"
+"","","","","","html-button-response","98","1186174","0.0-3.0-0.95","4","","","Five people sit together eating dinner at a restaurant.","flickr30_image_565.jpg","9"
+"","","","","","html-button-response","99","1194541","0.0-3.0-0.96","4","","","A man with headphones and a saw cuts into wood.","flickr30_image_3003.jpg","10"
+"","","","","","html-button-response","100","1212791","0.0-3.0-0.97","4","","","A young girl in the snow on snow shoes has a bird perched on her hand while posing for the camera.","flickr30_image_3145.jpg","21"
+"","","","","","html-button-response","101","1225263","0.0-3.0-0.98","4","","","A man in Hawaii dressed in traditional garb holds a ukulele.","flickr30_image_2901.jpg","11"
+"","","","","","html-button-response","102","1233108","0.0-3.0-0.99","4","","","A woman pushes a stroller while looking at her nails.","flickr30_image_3827.jpg","10"
+"","","","","","html-button-response","103","1243443","0.0-3.0-0.100","4","","","A child uses scissors to cut into a piece of paper she has drawn on.","flickr30_image_837.jpg","15"
+"","","","","","html-button-response","104","1251291","0.0-3.0-0.101","4","","","A baby sleeps on a woven blanket.","flickr30_image_350.jpg","7"
+"","","","","","html-button-response","105","1261398","0.0-3.0-0.102","4","","","A young male child pushes a young female child on an outdoor swing.","flickr30_image_3483.jpg","13"
+"","","","","","html-button-response","106","1275075","0.0-3.0-0.103","4","","","A young man in a winter hat with tassels smiles at someone off camera.","flickr30_image_2960.jpg","14"
+"","","","","","html-button-response","107","1290342","0.0-3.0-0.104","4","","","A person stands in a desert-like area with a large truck of sorts that says ""Water for Sudan."" ","flickr30_image_619.jpg","18"
+"","","","","","html-button-response","108","1304174","0.0-3.0-0.105","4","","","An older person stands at a cart with apples or other fruit while talking to the child managing the cart.","flickr30_image_3757.jpg","20"
+"","","","","","html-button-response","109","1319808","0.0-3.0-0.106","4","","","A person in a blue jacket and hat approaches the passenger side window of a blue Toyota Camry.","flickr30_image_3268.jpg","18"
+"","","","","","html-button-response","110","1334224","0.0-3.0-0.107","4","","","Two women brush water on outdoor flooring.","flickr30_image_334.jpg","7"
+"","","","","","html-button-response","111","1346231","0.0-3.0-0.108","4","","","Two females look through microscopes. ","flickr30_image_2869.jpg","5"
+"","","","","","html-button-response","112","1357176","0.0-3.0-0.109","4","","","A woman reads a book while sitting outside and a man reads a newspaper in the background.","flickr30_image_951.jpg","17"
+"","","","","","html-button-response","113","1366358","0.0-3.0-0.110","4","","","Two kids smile for the camera while each holding up two fingers.","flickr30_image_3817.jpg","12"
+"","","","","","html-button-response","114","1380591","0.0-3.0-0.111","4","","","A young child in a restaurant holds a crayon in his left hand while writing something on paper.","flickr30_image_3169.jpg","18"
+"","","","","","html-button-response","115","1391527","0.0-3.0-0.112","4","","","Two men sleep on a boat with hats over their faces.","flickr30_image_3370.jpg","11"
+"","","","","","html-button-response","116","1402726","0.0-3.0-0.113","4","","","Two police officers talk while another man stands in the distance.","flickr30_image_2906.jpg","11"
+"","","","","","html-button-response","117","1411307","0.0-3.0-0.114","4","","","A woman stands by an outdoor cart selling wares.","flickr30_image_3137.jpg","9"
+"","","","","","html-button-response","118","1427592","0.0-3.0-0.115","4","","","An adult and child bundled up for cold weather are together outside as the adult builds a fire.","flickr30_image_3147.jpg","18"
+"","","","","","html-button-response","119","1437960","0.0-3.0-0.116","4","","","A child inside a greenhouse looks at a miniature train.","flickr30_image_460.jpg","10"
+"","","","","","html-button-response","120","1450992","0.0-3.0-0.117","4","","","Several Indian individuals sell food outside.","flickr30_image_591.jpg","6"
+"","","","","","html-button-response","121","1457958","0.0-3.0-0.118","4","","","A young child sits on the ground outside, thinking.","flickr30_image_476.jpg","9"
+"","","","","","html-button-response","122","1468509","0.0-3.0-0.119","4","","","A child is in a school building smiling while holding some sort of instrument.","flickr30_image_3855.jpg","14"
+"","","","","","html-button-response","123","1477342","0.0-3.0-0.120","4","","","A man carves intricate designs into a sandcastle.","flickr30_image_3427.jpg","8"
+"","","","","","html-button-response","124","1488226","0.0-3.0-0.121","4","","","A young girl gets ready to swing the bat and hit a ball during t-ball.","flickr30_image_741.jpg","15"

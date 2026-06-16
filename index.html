@@ -94,7 +94,7 @@ fetch("stimuli/full_sample/files.json")
       on_finish: function(data) {
         prolific_id = data.response.Q0.trim();
 
-        filename = `group${assigned_group_index}_${prolific_id}.csv`;
+        filename = `group${image_group}_${prolific_id}.csv`; //image group is 1, 2, 3 or 4 (not zero indexed)
 
         jsPsych.data.addProperties({
           prolific_id: prolific_id
