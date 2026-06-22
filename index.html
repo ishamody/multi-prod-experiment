@@ -57,7 +57,9 @@ fetch("stimuli/full_sample/files.json")
     const group3 = images.slice(2 * groupSize, 3 * groupSize);
     const group4 = images.slice(3 * groupSize, n);
 
-    const assigned_group_index = jsPsych.randomization.randomInt(0, nGroups - 1);
+    //const assigned_group_index = jsPsych.randomization.randomInt(0, nGroups - 1);
+    //changed to manual assignment, CURRENT INDEX= 0 (image group 1)
+    const assigned_group_index = 0;
 
     let participant_images;
 
@@ -94,7 +96,7 @@ fetch("stimuli/full_sample/files.json")
       on_finish: function(data) {
         prolific_id = data.response.Q0.trim();
 
-        filename = `group${image_group}_${prolific_id}.csv`; //image group is 1, 2, 3 or 4 (not zero indexed)
+        filename = `group${assigned_group_index + 1}_${prolific_id}.csv`; //image group/assigned_group_index + 1 is 1, 2, 3 or 4 (not zero indexed)
 
         jsPsych.data.addProperties({
           prolific_id: prolific_id
@@ -165,7 +167,11 @@ fetch("stimuli/full_sample/files.json")
           <div style="text-align:center; margin:20px 0;">
             <img src="stimuli/instructions_example.png" width="600">
           </div>
-
+          
+          <p>
+          Based on our pilot data, this experiment should take approximately an hour. We will cap it at 2 hours. 
+          </p>
+          
           <p>
             Please make sure you understand these instructions and are able to follow
             them in every question. Do not complete this survey if you do not understand.
@@ -212,6 +218,9 @@ fetch("stimuli/full_sample/files.json")
 
         const img = jsPsych.timelineVariable('image');
 
+        // start timer
+        const start_time = performance.now();
+
         const input = document.getElementById("resp");
         const btn = document.getElementById("next-btn");
         const warning = document.getElementById("warning");
@@ -238,12 +247,15 @@ fetch("stimuli/full_sample/files.json")
             warning.innerText = "Please write at least 5 words.";
             return;
           }
+          
+          const rt = performance.now() - start_time;
 
           jsPsych.finishTrial({
             image_name: img,
             response: input.value,
             word_count: words.length,
-            image_group: assigned_group_index + 1
+            image_group: assigned_group_index + 1,
+            rt_ms: Math.round(rt)
           });
         };
       }
